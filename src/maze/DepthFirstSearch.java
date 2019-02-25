@@ -125,6 +125,12 @@ public abstract class DepthFirstSearch implements MazeGenerator {
 	 */
 	protected abstract int fillBoardWithMovement(Directions d, int posX, int posY);
 
+	/**
+	 * Crea una lista con los movimientos posibles
+	 * @param x Fila del tablero para buscar el movimiento
+	 * @param y Columna del tablero para buscar el movimiento
+	 * @return Devuelve una lista con los movimientos posibles
+	 */
 	protected abstract ArrayList<Directions> checkMovements(int x, int y);
 
 	/**
@@ -228,24 +234,6 @@ public abstract class DepthFirstSearch implements MazeGenerator {
 	/**
 	 * Devuelve un string con el tablero
 	 */
-	public String toString() {
-		String s = "";
-		
-		for(int i = 0; i < this.xTam; ++i) {
-			s += System.getProperty("line.separator");
-			for(int j = 0; j < this.yTam; ++j) {
-				if(this.board[i][j] == 0)
-					s += "#";
-				else if(this.board[i][j] == 1)
-					s += " ";
-				else if(this.board[i][j] == 2)
-					s += "-";
-				else
-					s += "*";
-			}
-		}
-		
-		return s;
-	}
+	public abstract String toString();
 
 }

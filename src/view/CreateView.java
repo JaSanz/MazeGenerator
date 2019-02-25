@@ -49,7 +49,7 @@ public class CreateView extends JFrame {
         }
 		this.f.add(this.casilla);
 		
-		this.f.setSize(((SquareGenerator) this.a).getYTam()*10, ((SquareGenerator) this.a).getXTam()*10);
+		this.f.setSize(((SquareGenerator) this.a).getYTam()*10, ((SquareGenerator) this.a).getXTam()*10 + 50);
 		this.f.setVisible(true);
 	}
 	

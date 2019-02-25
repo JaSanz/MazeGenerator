@@ -12,23 +12,9 @@ public class SquareGenerator extends DepthFirstSearch {
 	 */
 	public SquareGenerator(int mode, int xTam, int yTam) {
 		super(mode, xTam, yTam);
-		/*if(establishArguments(mode, xTam, yTam)) {
-			generateBoard();
-			this.hasEntrance = false;
-			this.hasExit = false;
-			this.isCorrectGeneration = true;
-		}
-		else
-			this.isCorrectGeneration = false;*/
 	}
 	
-	/**
-	 * Ejecuta los movimientos según el modo del laberinto, la dirección escogida y la posición actual sobre la que se va a aplicar la dirección
-	 * @param d Dirección del movimiento
-	 * @param posX Fila actual sobre la que se va a aplicar la dirección
-	 * @param posY Columna actual sobre la que se va a aplicar la dirección
-	 * @return Devuelve la nueva posición sobre la que ya se ha aplicado el cambio
-	 */
+	@Override
 	protected int fillBoardWithMovement(Directions d, int posX, int posY) {
 		int newActual = -1;
 		
@@ -58,12 +44,7 @@ public class SquareGenerator extends DepthFirstSearch {
 		return newActual;
 	}
 	
-	/**
-	 * Crea una lista con los movimientos posibles
-	 * @param x Fila del tablero para buscar el movimiento
-	 * @param y Columna del tablero para buscar el movimiento
-	 * @return Devuelve una lista con los movimientos posibles
-	 */
+	@Override
 	protected ArrayList<Directions> checkMovements(int x, int y) {
 		ArrayList<Directions> a = new ArrayList<Directions>();
 		
@@ -90,6 +71,27 @@ public class SquareGenerator extends DepthFirstSearch {
 		;
 		
 		return a;
+	}
+	
+	@Override
+	public String toString() {
+		String s = "";
+		
+		for(int i = 0; i < super.getXTam(); ++i) {
+			s += System.getProperty("line.separator");
+			for(int j = 0; j < super.getYTam(); ++j) {
+				if(super.getSquare(i, j) == 0)
+					s += "#";
+				else if(super.getSquare(i, j) == 1)
+					s += " ";
+				else if(super.getSquare(i, j) == 2)
+					s += "-";
+				else
+					s += "*";
+			}
+		}
+		
+		return s;
 	}
 	
 }
