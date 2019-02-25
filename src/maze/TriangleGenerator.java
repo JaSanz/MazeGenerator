@@ -10,7 +10,6 @@ public class TriangleGenerator extends DepthFirstSearch {
 
 	@Override
 	protected int fillBoardWithMovement(Directions d, int posX, int posY) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
